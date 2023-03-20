@@ -41,7 +41,6 @@
     //Checks that there were quotes returned
     if($num > 0) {
         $quotes_arr = array();
-        $quotes_arr['quote'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
@@ -53,7 +52,7 @@
                 'category' => $category
             );
 
-            array_push($quotes_arr['quote'], $quote_item);
+            array_push($quotes_arr, $quote_item);
         }
 
         echo json_encode($quotes_arr);
