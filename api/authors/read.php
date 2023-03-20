@@ -19,7 +19,6 @@
     //Checks that there were quotes returned
     if($num > 0) {
         $authors_arr = array();
-        $authors_arr['author'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
@@ -29,7 +28,7 @@
                 'author' => $author
             );
 
-            array_push($authors_arr['author'], $author_item);
+            array_push($authors_arr, $author_item);
         }
 
         echo json_encode($authors_arr);

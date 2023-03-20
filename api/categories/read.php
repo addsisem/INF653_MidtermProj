@@ -19,7 +19,6 @@
     //Checks that there were quotes returned
     if($num > 0) {
         $categories_arr = array();
-        $categories_arr['category'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
@@ -29,7 +28,7 @@
                 'category' => $category
             );
 
-            array_push($categories_arr['category'], $category_item);
+            array_push($categories_arr, $category_item);
         }
 
         echo json_encode($categories_arr);

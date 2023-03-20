@@ -14,21 +14,21 @@
     $quote = new Quote($db);
 
     // Find quotes from a specific author that are in also in a specific category
-    if(isset($_GET['authorId']) && isset($_GET['categoryId'])) {
-        $quote->author_id = $_GET['authorId'];
-        $quote->category_id = $_GET['categoryId'];
+    if(isset($_GET['author_id']) && isset($_GET['category_id'])) {
+        $quote->author_id = $_GET['author_id'];
+        $quote->category_id = $_GET['category_id'];
         $result = $quote->readCategoryAuthors();
         $num = $result->rowCount();
         
     // Find quotes from a specific author
-    } else if(isset($_GET['authorId'])) {
-        $quote->author_id = $_GET['authorId'];
+    } else if(isset($_GET['author_id'])) {
+        $quote->author_id = $_GET['author_id'];
         $result = $quote->readAuthor();
         $num = $result->rowCount();
 
     // Find quotes from a specific category
-    } else if(isset($_GET['categoryId'])) {
-        $quote->category_id = $_GET['categoryId'];
+    } else if(isset($_GET['category_id'])) {
+        $quote->category_id = $_GET['category_id'];
         $result = $quote->readCategory();
         $num = $result->rowCount();
 
