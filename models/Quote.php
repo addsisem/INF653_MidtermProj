@@ -132,6 +132,7 @@
 
             // Error Handling
             if($row != null) {
+                $this->id = $row['id'];
                 $this->quote = $row['quote'];
                 $this->category = $row['category'];
                 $this->author = $row['author'];
