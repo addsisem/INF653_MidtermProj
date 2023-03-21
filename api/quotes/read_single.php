@@ -25,7 +25,7 @@
     );
 
     if($quote->quote != null) {
-        print_r(json_encode($quote_arr));
+        print_r(json_encode($quote_arr, JSON_FORCE_OBJECT));
     } else {
         echo json_encode(
             array('message' => 'No Quotes Found')
