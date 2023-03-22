@@ -18,7 +18,7 @@
     $author = new Author($db);
 
     // If parameters were not passed in
-    if($data->author_id === null || $data->category_id === null || $data->quote === null) {
+    if(!isset($data->author_id) || !isset($data->category_id) || !isset($data->quote)) {
         echo json_encode(
             array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT
         );

@@ -14,7 +14,7 @@ $db = $database->connect();
 $author = new Author($db);
 
 // If parameters were not passed in
-if($data->author === null) {
+if(!isset($data->author)) {
     echo json_encode(
         array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT
     );
