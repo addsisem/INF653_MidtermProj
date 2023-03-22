@@ -17,7 +17,7 @@ $category->id = $data->id;
 
 if($category->delete()) {
     echo json_encode(
-        array('message' => 'Category Deleted')
+        array('id' => $quote->id), JSON_FORCE_OBJECT
     );
 } else {
     echo json_encode(

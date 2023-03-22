@@ -138,6 +138,13 @@
                 $this->author = $row['author'];
             }
 
+            if($row['quote'] == null) {
+                echo json_encode(
+                    array('message' => 'No Quotes Found')
+                );
+                exit(1);
+            }
+
             return $stmt;
         }
 
@@ -145,16 +152,15 @@
             $query = 'INSERT INTO ' . 
                         $this->table . '
                       (
-                      quote, 
-                      category_id, 
-                      author_id
+                        quote, 
+                        category_id, 
+                        author_id
                       )
                       VALUES (
                         :quote,
                         :category_id,
                         :author_id
-                      );
-                      ';
+                      );';
 
             $stmt = $this->conn->prepare($query);
 
@@ -168,6 +174,9 @@
 
             // Query succeeds
             if($stmt->execute()) {
+
+                // Returns last inserted id from db
+                $this->id = $this->conn->lastInsertId();
                 return true;
             }
     
@@ -200,7 +209,8 @@
             $stmt->bindParam(':id', $this->id);
     
             // Query succeeds
-            if($stmt->execute()) {
+            if($stmt->execute()) {               
+
                 return true;
             }
     

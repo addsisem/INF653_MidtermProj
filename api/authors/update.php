@@ -26,7 +26,10 @@ $author->author = $data->author;
 
 if($author->update()) {
     echo json_encode(
-        array('message' => 'Author Updated')
+        array(
+            'id' => $author->id,
+            'author' => $author->author
+        ), JSON_FORCE_OBJECT
     );
 } else {
     echo json_encode(

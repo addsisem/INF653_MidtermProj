@@ -41,6 +41,13 @@ class Author {
             $this->author = $row['author'];
         }
 
+        if($row['author'] == null) {
+            echo json_encode(
+                array('message' => 'author_id Not Found')
+            );
+            exit(1);
+        }
+
         return $stmt;
     }
 
@@ -63,6 +70,9 @@ class Author {
 
         // Query succeeds
         if($stmt->execute()) {
+
+            // Returns last inserted id from db
+            $this->id = $this->conn->lastInsertId();
             return true;
         }
 

@@ -15,13 +15,20 @@ $quote = new Quote($db);
 
 $quote->id = $data->id;
 
-if($quote->delete()) {
+// Find quote by id in db
+$quote->read_single();
+
+// If the quote was found
+if($quote->quote != null) {
+    //delete the quote
+    $quote->delete();
     echo json_encode(
-        array('message' => 'Quote Deleted')
+        array('id' => $quote->id), JSON_FORCE_OBJECT
     );
+// Quote was not found
 } else {
     echo json_encode(
-        array('message' => 'Quote Not Deleted')
+        array('message' => 'No Quotes Found')
     ); 
 }
 ?>

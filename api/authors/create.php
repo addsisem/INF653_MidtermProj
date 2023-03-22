@@ -24,8 +24,12 @@ if($data->author == null) {
 $author->author = $data->author;
 
 if($author->create()) {
+
     echo json_encode(
-        array('message' => 'Author Added')
+        array(
+            'id' => $author->id,
+            'author' => $author->author
+        ), JSON_FORCE_OBJECT
     );
 } else {
     echo json_encode(

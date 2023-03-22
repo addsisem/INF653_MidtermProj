@@ -41,6 +41,13 @@ class Category {
             $this->category = $row['category'];
         }
 
+        if($row['category'] == null) {
+            echo json_encode(
+                array('message' => 'category_id Not Found')
+            );
+            exit(1);
+        }
+
         return $stmt;
     }
 
@@ -63,6 +70,9 @@ class Category {
 
         // Query succeeds
         if($stmt->execute()) {
+
+            // Returns last inserted id from db
+            $this->id = $this->conn->lastInsertId();
             return true;
         }
 

@@ -17,7 +17,7 @@ $author->id = $data->id;
 
 if($author->delete()) {
     echo json_encode(
-        array('message' => 'Author Deleted')
+        array('id' => $quote->id), JSON_FORCE_OBJECT
     );
 } else {
     echo json_encode(

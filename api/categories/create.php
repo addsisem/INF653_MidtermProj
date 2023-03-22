@@ -24,8 +24,12 @@ if($data->category == null) {
 $category->category = $data->category;
 
 if($category->create()) {
+
     echo json_encode(
-        array('message' => 'Category Added')
+        array(
+            'id' => $category->id,
+            'category' => $category->category
+        ), JSON_FORCE_OBJECT
     );
 } else {
     echo json_encode(
