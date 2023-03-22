@@ -13,8 +13,8 @@ $db = $database->connect();
 
 $author = new Author($db);
 
-// Error-handling
-if($data->author ??= null) {
+// If parameters were not passed in
+if($data->author === null) {
     echo json_encode(
         array('message' => 'Missing Required Parameters')
     );

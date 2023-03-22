@@ -34,7 +34,7 @@
         echo json_encode($authors_arr);
     } else {
         echo json_encode(
-            array('message' => 'author_id Not Found')
+            array('message' => 'Authors Not Found')
         );
     }
 ?>

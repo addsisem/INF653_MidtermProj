@@ -13,6 +13,7 @@
 
     $author = new Author($db);
 
+    // Check whether the passed in url contains an id
     $author->id = isset($_GET['id']) ? $_GET['id'] : die();
 
     $author->read_single();

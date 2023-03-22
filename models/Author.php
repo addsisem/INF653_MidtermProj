@@ -36,12 +36,13 @@ class Author {
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Error Handling
+        // Make sure data was returned
         if($row != null) {
             $this->author = $row['author'];
         }
 
-        if($row['author'] ??= null) {
+        // If data was returned but the author field is null
+        if($row['author'] === null) {
             echo json_encode(
                 array('message' => 'author_id Not Found'), JSON_FORCE_OBJECT
             );
@@ -92,6 +93,7 @@ class Author {
 
         $stmt = $this->conn->prepare($query);
 
+        // Cleaning up the data
         $this->author = htmlspecialchars(strip_tags($this->author));
         $this->id = htmlspecialchars(strip_tags($this->id));
 

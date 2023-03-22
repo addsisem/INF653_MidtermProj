@@ -13,8 +13,8 @@ $db = $database->connect();
 
 $category = new Category($db);
 
-// Error-handling
-if($data->category ??= null) {
+// If parameters were not passed in
+if($data->category === null) {
     echo json_encode(
         array('message' => 'Missing Required Parameters')
     );

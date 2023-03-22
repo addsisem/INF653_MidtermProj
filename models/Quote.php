@@ -130,7 +130,7 @@
             $stmt->execute();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            // Error Handling
+            // Make sure data was returned
             if($row != null) {
                 $this->id = $row['id'];
                 $this->quote = $row['quote'];
@@ -138,7 +138,8 @@
                 $this->author = $row['author'];
             }
 
-            if($row['quote'] ??= null)  {
+            // If data was returned but the author field is null
+            if($row['quote'] === null)  {
                 echo json_encode(
                     array('message' => 'No Quotes Found'), JSON_FORCE_OBJECT
                 );

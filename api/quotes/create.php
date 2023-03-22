@@ -17,8 +17,8 @@
     $category = new Category($db);
     $author = new Author($db);
 
-    // Error-handling
-    if($data->author_id ??= null || $data->category_id ??= null || $data->quote ??= null) {
+    // If parameters were not passed in
+    if($data->author_id === null || $data->category_id === null || $data->quote === null) {
         echo json_encode(
             array('message' => 'Missing Required Parameters')
         );
@@ -32,6 +32,7 @@
     $category->id = $data->category_id;
     $author->id = $data->author_id;
 
+    // Checking for valid id's for passed in category and author
     if($category->read_single() && $author->read_single()) {
         $quote->create();
 
