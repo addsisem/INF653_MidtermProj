@@ -41,9 +41,9 @@ class Category {
             $this->category = $row['category'];
         }
 
-        if($row['category'] == null) {
+        if($row['category'] ??= null) {
             echo json_encode(
-                array('message' => 'category_id Not Found')
+                array('message' => 'category_id Not Found'), JSON_FORCE_OBJECT
             );
             exit(1);
         }

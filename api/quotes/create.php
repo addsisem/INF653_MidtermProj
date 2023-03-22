@@ -18,7 +18,7 @@
     $author = new Author($db);
 
     // Error-handling
-    if($data->author_id == null || $data->category_id == null || $data->quote == null) {
+    if($data->author_id ??= null || $data->category_id ??= null || $data->quote ??= null) {
         echo json_encode(
             array('message' => 'Missing Required Parameters')
         );

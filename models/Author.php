@@ -41,9 +41,9 @@ class Author {
             $this->author = $row['author'];
         }
 
-        if($row['author'] == null) {
+        if($row['author'] ??= null) {
             echo json_encode(
-                array('message' => 'author_id Not Found')
+                array('message' => 'author_id Not Found'), JSON_FORCE_OBJECT
             );
             exit(1);
         }
