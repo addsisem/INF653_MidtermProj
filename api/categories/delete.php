@@ -21,7 +21,7 @@ if($category->delete()) {
     );
 } else {
     echo json_encode(
-        array('message' => 'Category Not Deleted')
+        array('message' => 'Category Not Deleted'), JSON_FORCE_OBJECT
     ); 
 }
 ?>

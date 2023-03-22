@@ -34,7 +34,7 @@
         echo json_encode($categories_arr);
     } else {
         echo json_encode(
-            array('message' => 'category_id Not Found')
+            array('message' => 'Categories Not Found'), JSON_FORCE_OBJECT
         );
     }
 ?>

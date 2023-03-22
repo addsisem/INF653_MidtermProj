@@ -42,7 +42,7 @@ class Category {
         }
 
         // If data was returned but the author field is null
-        if($row['category'] === null) {
+        if(!isset($row['category'])) {
             echo json_encode(
                 array('message' => 'category_id Not Found'), JSON_FORCE_OBJECT
             );

@@ -20,7 +20,7 @@
     // If parameters were not passed in
     if($data->author_id === null || $data->category_id === null || $data->quote === null) {
         echo json_encode(
-            array('message' => 'Missing Required Parameters')
+            array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT
         );
         return false;
     }
@@ -46,7 +46,7 @@
         );
     } else {
         echo json_encode(
-            array('message' => 'Quote Not Created')
+            array('message' => 'Quote Not Created'), JSON_FORCE_OBJECT
         ); 
     }
 ?>

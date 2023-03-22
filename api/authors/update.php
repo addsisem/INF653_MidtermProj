@@ -16,7 +16,7 @@ $author = new Author($db);
 // If parameters were not passed in
 if($data->author === null) {
     echo json_encode(
-        array('message' => 'Missing Required Parameters')
+        array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT
     );
     return false;
 }
@@ -33,7 +33,7 @@ if($author->update()) {
     );
 } else {
     echo json_encode(
-        array('message' => 'Author Not Updated')
+        array('message' => 'Author Not Updated'), JSON_FORCE_OBJECT
     ); 
 }
 ?>

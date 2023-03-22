@@ -23,10 +23,10 @@
     );
 
     if($category->category != null) {
-        print_r(json_encode($category_arr));
+        print_r(json_encode($category_arr, JSON_FORCE_OBJECT));
     } else {
         echo json_encode(
-            array('message' => 'category_id Not Found')
+            array('message' => 'Category Not Found'), JSON_FORCE_OBJECT
         );
     }
 ?>

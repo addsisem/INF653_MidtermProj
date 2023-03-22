@@ -58,7 +58,7 @@
         echo json_encode($quotes_arr);
     } else {
         echo json_encode(
-            array('message' => 'No Quotes Found')
+            array('message' => 'No Quotes Found'), JSON_FORCE_OBJECT
         );
     }
 ?>

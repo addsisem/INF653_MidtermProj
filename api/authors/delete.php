@@ -21,7 +21,7 @@ if($author->delete()) {
     );
 } else {
     echo json_encode(
-        array('message' => 'Author Not Deleted')
+        array('message' => 'Author Not Deleted'), JSON_FORCE_OBJECT
     ); 
 }
 ?>

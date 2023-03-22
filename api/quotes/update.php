@@ -20,7 +20,7 @@ $author = new Author($db);
 // If parameters were not passed in
 if($data->author_id === null || $data->category_id === null || $data->id === null) {
     echo json_encode(
-        array('message' => 'Missing Required Parameters')
+        array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT
     );
     return false;
 }
@@ -48,7 +48,7 @@ if($quote->read_single() && $category->read_single() && $author->read_single()) 
     );
 } else {
     echo json_encode(
-        array('message' => 'Quote Not Updated')
+        array('message' => 'Quote Not Updated'), JSON_FORCE_OBJECT
     ); 
 }
 ?>

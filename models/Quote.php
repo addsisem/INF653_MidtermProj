@@ -139,7 +139,7 @@
             }
 
             // If data was returned but the author field is null
-            if($row['quote'] === null)  {
+            if(!isset($row['quote']))  {
                 echo json_encode(
                     array('message' => 'No Quotes Found'), JSON_FORCE_OBJECT
                 );

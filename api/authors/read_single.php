@@ -24,10 +24,10 @@
     );
 
     if($author->author != null) {
-        print_r(json_encode($author_arr));
+        print_r(json_encode($author_arr, JSON_FORCE_OBJECT));
     } else {
         echo json_encode(
-            array('message' => 'author_id Not Found')
+            array('message' => 'Author Not Found'), JSON_FORCE_OBJECT
         );
     }
 ?>

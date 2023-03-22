@@ -16,7 +16,7 @@ $category = new Category($db);
 // If parameters were not passed in
 if($data->category === null) {
     echo json_encode(
-        array('message' => 'Missing Required Parameters')
+        array('message' => 'Missing Required Parameters'), JSON_FORCE_OBJECT
     );
     return false;
 }
@@ -33,7 +33,7 @@ if($category->create()) {
     );
 } else {
     echo json_encode(
-        array('message' => 'Category Not Added')
+        array('message' => 'Category Not Added'), JSON_FORCE_OBJECT
     ); 
 }
 ?>
