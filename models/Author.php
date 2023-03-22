@@ -42,7 +42,7 @@ class Author {
         }
 
         // If data was returned but the author field is null
-        if(!isset(['author'])) {
+        if(!isset($row['author'])) {
             echo json_encode(
                 array('message' => 'author_id Not Found'), JSON_FORCE_OBJECT
             );
