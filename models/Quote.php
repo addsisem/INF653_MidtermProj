@@ -138,9 +138,9 @@
                 $this->author = $row['author'];
             }
 
-            if($row['quote'] == null) {
+            if($row['quote'] ??= null)  {
                 echo json_encode(
-                    array('message' => 'No Quotes Found')
+                    array('message' => 'No Quotes Found'), JSON_FORCE_OBJECT
                 );
                 exit(1);
             }
